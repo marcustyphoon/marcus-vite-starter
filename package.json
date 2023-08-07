@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "npm run eslint && npm run prettier",
+    "eslint": "eslint src --ext js,jsx",
+    "prettier": "prettier src --check"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.9.0",

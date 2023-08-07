@@ -3,14 +3,14 @@ name: 'Deploy: GitHub Pages'
 on:
   push:
     branches:
-      - main
+      - $default-branch
   workflow_dispatch:
 
 env:
   NODE_VERSION: lts/*
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 

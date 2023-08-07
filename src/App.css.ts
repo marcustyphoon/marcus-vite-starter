@@ -6,6 +6,7 @@ globalStyle('#root', {
   boxSizing: 'border-box',
 });
 
+// eslint-disable-next-line import/prefer-default-export
 export const example = style({
   fontSize: '2em',
 });

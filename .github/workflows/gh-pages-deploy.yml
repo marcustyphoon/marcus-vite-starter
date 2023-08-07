@@ -1,4 +1,4 @@
-name: Github Pages Deploy
+name: 'Deploy: GitHub Pages'
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 16
+  NODE_VERSION: lts/*
 
 permissions:
   contents: write
@@ -20,24 +20,44 @@ concurrency:
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
-      - run: npm ci
-      - run: npm run build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm ci
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # upload dist repository
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

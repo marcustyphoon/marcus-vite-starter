@@ -18,8 +18,8 @@
     "test": "concurrently -g -c auto pnpm:eslintCheck pnpm:typeCheck pnpm:prettierCheck"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.15.2",
-    "@vanilla-extract/vite-plugin": "^4.0.10",
+    "@vanilla-extract/css": "^1.15.3",
+    "@vanilla-extract/vite-plugin": "^4.0.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.13"
@@ -27,17 +27,17 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.11.0",
-    "@typescript-eslint/parser": "^7.11.0",
-    "@vitejs/plugin-react": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "prettier": "^3.3.0",
+    "prettier": "^3.3.2",
     "typescript": "^5.4.5",
-    "vite": "^5.2.12"
+    "vite": "^5.3.1"
   }
 }

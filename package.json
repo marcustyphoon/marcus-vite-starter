@@ -13,27 +13,27 @@
     "test": "concurrently -g -c auto npm:eslintCheck npm:typeCheck npm:prettierCheck"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.21.2",
+    "@vanilla-extract/css": "^1.21.3",
     "@vanilla-extract/vite-plugin": "^5.2.6",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-error-boundary": "^6.1.6"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "@typescript-eslint/eslint-plugin": "^8.72.1",
     "@typescript-eslint/parser": "^8.70.1",
-    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-react": "^6.2.1",
     "concurrently": "^10.0.6",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.4.26",
-    "prettier": "^3.9.9",
+    "prettier": "^3.9.10",
     "typescript": "^5.9.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.5"
   },
   "allowScripts": {
     "esbuild": true,
